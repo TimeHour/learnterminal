@@ -1,54 +1,60 @@
 function write(string){
-process.stdout.write(string);
+    process.stdout.write(string);
 }
-write('Hello\n')
+import chalk from 'chalk';
+import boxen from 'boxen';
+
+write(chalk.blue.bgGreen('Hello chalk'));
 
 
-//bold                                 //unbold
-write('\x1B[1m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//dim/faint                             //unbold
-write('\x1B[2m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//italic                                 //unbold
-write('\x1B[3m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//underline                                 //unbold
-write('\x1B[4m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//blinking                                 //unbold
-write('\x1B[5m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//inverse                                 //unbold
-write('\x1B[7m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//hidden invisible                         //unbold
-write('\x1B[8m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-//striketrough                             //unbold
-write('\x1B[9m'), write('Hello\n'), write('\x1B[0m'); write('\n')
-
-
-
-
-// \x1B[1;30m
-for(let i=30; i<40; i++){
-    if(i==38) continue;
-    //colors
-    write('\x1B[1;'+i+'m'); write('color code number ' + i); write('\x1B[0m'); write('\n');
-}
-for(let i=30; i<40; i++){
-    if(i==38) continue;
-    //colors
-    write('\x1B[2;'+i+'m'); write('color code number ' + i); write('\x1B[0m'); write('\n');
+for(let i=0; i<16; i++){
+    for(let j=0; j<16; j++){        
+        let color = (i*j).toString()    
+        write(chalk.ansi256(color)(color.padEnd(4,' '))); 
+    }
+    write('\n');
 }
 
-for(let i=40; i<50; i++){
-    if(i==48) continue;
-    //colors
-    write('\x1B[1;'+i+'m'); write('color code number ' + i); write('\x1B[0m'); write('\n');
-}
+write(boxen(chalk.blue.bgGreen('Hello chalk'), {
+    padding: 1,
+    margin:1
+}));
 
-for(let i=40; i<50; i++){
-    if(i==48) continue;
-    //colors
-    write('\x1B[2;'+i+'m'); write('color code number ' + i); write('\x1B[0m'); write('\n');
-}
 
-console.clear();
-write('hello mm21');
-write('\x1B[4D');
-write('Martin');
+
+
+
+
+write('\x1B[1m');
+write(boxen(chalk.red.bgBlue('Hello chalk'), {
+    padding: 1,
+    margin:1
+}));
+
+write('\x1B[3m');
+write(boxen(chalk.red.bgBlack('Hello chalk'), {
+    padding: 1,
+    margin:1
+    
+}));
+
+write('\x1B[5m');
+write(boxen(chalk.green.bgBlueBright('Hello chalk'), {
+    padding: 1,
+    margin:1
+    
+}));
+
+write('\x1B[2m');
+write(boxen(chalk.black.bgWhite('Hello chalk'), {
+    padding: 1,
+    margin:1
+    
+}));
+
+write('\x1B[0m');
+write(boxen(chalk.white.bgYellowBright('Hello chalk'), {
+    padding: 1,
+    margin:1
+    
+}));
