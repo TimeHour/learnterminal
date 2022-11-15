@@ -1,7 +1,7 @@
 function write(string){
     process.stdout.write(string);
 }
-import chalk from 'chalk';
+import chalk, { backgroundColorNames } from 'chalk';
 import boxen from 'boxen';
 
 write(chalk.blue.bgGreen('Hello chalk'));
@@ -15,9 +15,11 @@ for(let i=0; i<16; i++){
     write('\n');
 }
 
-write(boxen(chalk.blue.bgGreen('Hello chalk'), {
+write(boxen(chalk.blue.bgGreen('Mello'), {
     padding: 1,
-    margin:1
+    margin:1,
+    borderStyle: 'double',
+    float: 'right'
 }));
 
 
@@ -25,36 +27,46 @@ write(boxen(chalk.blue.bgGreen('Hello chalk'), {
 
 
 
-write('\x1B[1m');
-write(boxen(chalk.red.bgBlue('Hello chalk'), {
-    padding: 1,
-    margin:1
+
+write(boxen(chalk.red.bold.bgBlue('Hello World!'), {
+    padding: 5,
+    margin:2,
+    borderStyle: 'arrow'
 }));
 
-write('\x1B[3m');
-write(boxen(chalk.red.bgBlack('Hello chalk'), {
-    padding: 1,
-    margin:1
+
+write(boxen(chalk.red.bgBlack('Nope'), {
+    //padding: 12,
+    margin:6,
+    width:25,
+    height:10,
+    titleAlignment: 'center',
+    title: 'can you marry me?',
+    textAlignment: 'right'
     
 }));
 
-write('\x1B[5m');
-write(boxen(chalk.green.bgBlueBright('Hello chalk'), {
-    padding: 1,
-    margin:1
+write(boxen(chalk.green.bgBlueBright('Yep im still here'), {
+    padding: 8,
+    margin:12,
+    backgroundColor: 'cyan'
     
 }));
 
-write('\x1B[2m');
-write(boxen(chalk.black.bgWhite('Hello chalk'), {
-    padding: 1,
-    margin:1
+
+write(boxen(chalk.black.bgWhite('How did you like my banana clicker'), {
+    padding: 7,
+    margin:18,
+    backgroundColor: 'white',
+    borderStyle: 'classic'
     
 }));
 
-write('\x1B[0m');
-write(boxen(chalk.white.bgYellowBright('Hello chalk'), {
-    padding: 1,
-    margin:1
+
+write(boxen(chalk.white.bgYellowBright('bruh'), {
+    padding: 16,
+    margin:21,
+    dimBorder: true,
+    borderStyle: 'round',
     
 }));

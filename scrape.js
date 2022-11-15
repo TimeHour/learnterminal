@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 for(let i=1; i<=10; i++){
     let data = cacheOrRequest(i);
-    const $ = cheerio,load(data);
+    const $ = cheerio.load(data);
     let img = $('#comic img')
     
 
